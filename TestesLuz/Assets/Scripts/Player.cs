@@ -37,7 +37,6 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E)) //interação
         {
-            Debug.Log("Apertou");
             Interactable?.Interact(this);
         }
         if (Input.GetKeyDown(KeyCode.LeftShift))
