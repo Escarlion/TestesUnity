@@ -6,7 +6,9 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private DialogueUI dialogueUI;
     [SerializeField] Animator animator;
+    [SerializeField] GameObject lampada;
 
+    
     public float MoveSpeed = 5f; //velocidade do player
     bool facingRight = true;
     Vector2 movement;
@@ -37,7 +39,11 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E)) //interação
         {
-            Interactable?.Interact(this);
+            if (!dialogueUI.IsOpen)
+            {
+                Interactable?.Interact(this);
+            }
+            
         }
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -46,6 +52,18 @@ public class Player : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             MoveSpeed = 5f;
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        { 
+            if (lampada.activeSelf)
+            {
+                lampada.SetActive(false);
+            }
+            else if (!lampada.activeSelf)
+            {
+                lampada.SetActive(true);
+            }
+            
         }
     }
 

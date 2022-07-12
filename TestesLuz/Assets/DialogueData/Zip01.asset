@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 100ab596e8a06c3478834f1a2bb03e38, type: 3}
   m_Name: Zip01
   m_EditorClassIdentifier: 
+  Nome: Zip
   dialogue:
   - Ola, Luz!
-  - "Est\xE1 tudo bem???"
+  - Ta afim de descobrir alguns comandos???
   responses:
   - responseText: Sim
     dialogueObject: {fileID: 11400000, guid: ada69c260dd38a24588d5ef87d59afa8, type: 2}

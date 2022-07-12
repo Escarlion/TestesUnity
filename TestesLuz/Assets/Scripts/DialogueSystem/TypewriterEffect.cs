@@ -92,4 +92,5 @@ public class TypewriterEffect : MonoBehaviour
             WaitTime = waitTime;
         }
     }
+
 }
