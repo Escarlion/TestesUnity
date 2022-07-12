@@ -16,6 +16,10 @@ Objeto em branco "ResponsePivo"t dentro da Dialogue Box
 Objeto em branco "ResponseBox" dendro do ResponsePivot (*Deve ser mantido desativado)
 Objeto Image "BG" dentro do Response Box (imagem p background)
 Objeto em branco "Responses" dentro do Response Box(*Deve ser mantido desativado)
-Objeto Text(TMP) "OptionTeamplate" dentro do Responses
+    adicionar "Vertical Layout Group" como componente, adicionar 10 ao padding "left"
+    mudar o Child Alignment para "Upper Center"
+    ativar o Control Child Size "width"
+Objeto Text(TMP) "OptionTeamplate" dentro do Responses(*Deve ser mantido desativado))
+    adicionar um bitão como componente
  
  */
