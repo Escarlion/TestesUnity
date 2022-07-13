@@ -7,8 +7,9 @@ public class Player : MonoBehaviour
     [SerializeField] private DialogueUI dialogueUI;
     [SerializeField] Animator animator;
     [SerializeField] GameObject lampada;
+    [SerializeField] GameObject interactIcon;
 
-    
+    private bool isInteractive = false;
     public float MoveSpeed = 5f; //velocidade do player
     bool facingRight = true;
     Vector2 movement;
@@ -89,5 +90,17 @@ public class Player : MonoBehaviour
         gameObject.transform.localScale = currentScale;
 
         facingRight = !facingRight;
+    }
+    public void interactIconActivator()
+    {
+        isInteractive = !isInteractive;
+        if(isInteractive == true)
+        {
+            interactIcon.SetActive(true);
+        }
+        if (isInteractive == false)
+        {
+            interactIcon.SetActive(false);
+        }
     }
 }
