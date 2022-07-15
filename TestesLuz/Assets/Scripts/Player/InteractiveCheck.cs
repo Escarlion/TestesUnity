@@ -5,21 +5,28 @@ using UnityEngine.Events;
 
 public class InteractiveCheck : MonoBehaviour
 {
-    [SerializeField] Player player;
-    [SerializeField] private DialogueUI dialogueUI;
+    private GameObject player;
+    private GameObject dialogueUI;
 
-    public DialogueUI DialogueUI => dialogueUI;
+    //public DialogueUI DialogueUI => dialogueUI;
 
     private bool hasDialogue;
     public bool isInRange;
     public KeyCode interactKey;
     public UnityEvent interactAction;
 
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        dialogueUI = GameObject.FindGameObjectWithTag("UI");
+    }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            player.interactIconActivator();
+            player.GetComponent<Player>().interactIconActivator();
             isInRange = true;
         }
     }
@@ -27,7 +34,7 @@ public class InteractiveCheck : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            player.interactIconActivator();
+            player.GetComponent<Player>().interactIconActivator();
             isInRange = false;
         }
     }
@@ -44,7 +51,7 @@ public class InteractiveCheck : MonoBehaviour
     }
     void checkDialogue()
     {
-        if (dialogueUI.IsOpen)
+        if (dialogueUI.GetComponent<DialogueUI>().IsOpen)
         {
             hasDialogue = true;
         }

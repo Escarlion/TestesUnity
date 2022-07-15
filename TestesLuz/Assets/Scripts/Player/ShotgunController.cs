@@ -4,44 +4,34 @@ using UnityEngine;
 
 public class ShotgunController : MonoBehaviour
 {
-    [SerializeField] Camera cam;
-    
-    Player player;
-    Rigidbody2D rb;
-
-    Vector2 mousePos, lookDir;
+    [SerializeField] Player player;
 
     public Transform firePoint;
     public GameObject bulletPrefab;
 
     public float bulletForce = 20f;
 
-    float angle;
+    Vector3 mousePos;
+   
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        player = gameObject.GetComponentInParent<Player>();
+
     }
     private void Update()
     {
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if(player.facingRight)
+            transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - transform.position)* Quaternion.Euler(0,0,90);
+        else
+            transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - transform.position) * Quaternion.Euler(0, 0, -90);
 
         if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
         }
 
-    }
-
-    private void FixedUpdate()
-    {
-        lookDir = mousePos - rb.position;
-        if (player.facingRight)
-            angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
-        else
-            angle = Mathf.Atan2(lookDir.y * -1, lookDir.x * -1) * Mathf.Rad2Deg;
-        rb.rotation = angle;
     }
 
     void Shoot()

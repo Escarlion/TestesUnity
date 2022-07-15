@@ -5,17 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class LoadLevel : MonoBehaviour
 {
+    GameObject player;
     public string sceneToLoad;
     public Vector2 playerPosition;
     public VectorValue playerStorage;
 
-
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Player") && !other.isTrigger)
         {
-            playerStorage.initialValue = playerPosition;
             SceneManager.LoadScene(sceneToLoad);
+            player.transform.position = playerPosition;
+            
         }
     }
 

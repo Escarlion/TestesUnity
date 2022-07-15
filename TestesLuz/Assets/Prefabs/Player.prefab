@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6b76d762404ef34d88077f161fa9360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
+  player: {fileID: 4673745865639770497}
   firePoint: {fileID: 5937950090365399607}
   bulletPrefab: {fileID: 7868895546930314231, guid: 4321b83d13864554c9ce0b108bf7b375, type: 3}
   bulletForce: 20
@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4673745865487915212
 Transform:
   m_ObjectHideFlags: 0
@@ -449,7 +449,7 @@ MonoBehaviour:
   - {x: 0.1253953, y: -0.43376398, z: 0}
   m_ShapePathHash: 1496498381
   m_Mesh: {fileID: 0}
-  m_InstanceId: 49386
+  m_InstanceId: 42326
 --- !u!114 &3701068955211708038
 MonoBehaviour:
   m_ObjectHideFlags: 0

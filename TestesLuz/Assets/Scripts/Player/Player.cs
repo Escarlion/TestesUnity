@@ -28,12 +28,13 @@ public class Player : MonoBehaviour
     private void Start()
     {
         playerHandler = GetComponent<PlayerHandler>();
-        rb = GetComponent<Rigidbody2D>(); //cria a colisão
-        this.transform.position = startPosition.initialValue;
+        rb = GetComponent<Rigidbody2D>(); //cria a colisão   
     }
 
     private void Update()
     {
+
+            
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 

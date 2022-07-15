@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class PlayerHandler : MonoBehaviour
 {
-    [SerializeField] Player player;
+    GameObject player;
 
     [HideInInspector]
     public bool hasShotgun = false;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     private void Update()
     {
         if (hasShotgun)
         {
-            this.transform.GetChild(2).gameObject.SetActive(true);
+            player.transform.GetChild(2).gameObject.SetActive(true);
         }
     }
 

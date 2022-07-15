@@ -3,7 +3,9 @@ guid: 5e8b836b4f9977b468ec9c28f8d056ff
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - player: {instanceID: 0}
+  - dialogueUI: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
