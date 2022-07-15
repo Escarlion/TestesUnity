@@ -6,12 +6,14 @@ public class DialogueUI : MonoBehaviour
 {
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TMP_Text textLabel;
-    [SerializeField] private TMP_Text nome;
+
+
 
     public bool IsOpen { get; private set; }
 
     private ResponseHandler responseHandler;
     private TypewriterEffect typewriterEffect;
+    private DialogueObject dialogueObjectActor;
 
     private void Start()
     {
@@ -21,7 +23,7 @@ public class DialogueUI : MonoBehaviour
     }
 
     public void ShowDialogue(DialogueObject dialogueObject)
-    {
+    {  
         IsOpen = true;
         dialogueBox.SetActive(true);
         StartCoroutine(StepThroughDialogue(dialogueObject));

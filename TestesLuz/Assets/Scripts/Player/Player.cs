@@ -6,13 +6,19 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private DialogueUI dialogueUI;
     [SerializeField] Animator animator;
-    [SerializeField] GameObject lampada;
-    [SerializeField] GameObject interactIcon;
+
+    private PlayerHandler playerHandler;
 
     private bool isInteractive = false;
+
     public float MoveSpeed = 5f; //velocidade do player
-    bool facingRight = true;
+
+    [HideInInspector]
+    public bool facingRight = true;
     Vector2 movement;
+
+    public VectorValue startPosition;
+
     public DialogueUI DialogueUI => dialogueUI;
 
     public IInteractable Interactable { get; set; }
@@ -21,7 +27,9 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        playerHandler = GetComponent<PlayerHandler>();
         rb = GetComponent<Rigidbody2D>(); //cria a colisão
+        this.transform.position = startPosition.initialValue;
     }
 
     private void Update()
@@ -56,28 +64,28 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Q))
         { 
-            if (lampada.activeSelf)
+            if (gameObject.transform.GetChild(0).gameObject.activeSelf)
             {
-                lampada.SetActive(false);
+                gameObject.transform.GetChild(0).gameObject.SetActive(false);
             }
-            else if (!lampada.activeSelf)
+            else if (!gameObject.transform.GetChild(0).gameObject.activeSelf)
             {
-                lampada.SetActive(true);
-            }
-            
+                gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            } 
         }
+       
     }
 
     private void FixedUpdate()
     {
         if (dialogueUI.IsOpen) return; //impede que o player se mova caso o dialogo esteja aberto
-        
+
         rb.MovePosition(rb.position + movement.normalized * (MoveSpeed * Time.fixedDeltaTime)); //faz o player se mexer
         if (movement.x > 0 && !facingRight)
         {
             Flip();
         }
-        if (movement.x < 0 && facingRight)
+        else if (movement.x < 0 && facingRight)
         {
             Flip();
         }
@@ -88,19 +96,21 @@ public class Player : MonoBehaviour
         Vector3 currentScale = gameObject.transform.localScale;
         currentScale.x *= -1;
         gameObject.transform.localScale = currentScale;
-
+        
         facingRight = !facingRight;
     }
+   
+
     public void interactIconActivator()
     {
         isInteractive = !isInteractive;
-        if(isInteractive == true)
+        if (isInteractive == true)
         {
-            interactIcon.SetActive(true);
+            gameObject.transform.GetChild(1).gameObject.SetActive(true);
         }
         if (isInteractive == false)
         {
-            interactIcon.SetActive(false);
+            gameObject.transform.GetChild(1).gameObject.SetActive(false);
         }
     }
 }

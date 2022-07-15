@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 100ab596e8a06c3478834f1a2bb03e38, type: 3}
+  m_Name: Zip02
+  m_EditorClassIdentifier: 
+  dialogue:
+  - 'Obor, o robo:
+
+    Ola, Luz!'
+  - 'Obor, o robo:
+
+    Uou, que arma daora! Pegou onde?'
+  - 'Luz:
+
+    Presente divino.'
+  - 'Obor, o robo:
+
+    ...'
+  - "Obor, o robo:\nE oque voc\xEA usa de muni\xE7\xE3o?"
+  - "Luz:\nO dev n\xE3o pensou nisso ainda."
+  - 'Obor, o robo:
+
+    ...'
+  - 'Obor, o robo:
+
+    Enfim, toma cuidado ai.'
+  responses: []

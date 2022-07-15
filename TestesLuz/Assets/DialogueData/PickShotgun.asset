@@ -12,8 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 100ab596e8a06c3478834f1a2bb03e38, type: 3}
   m_Name: PickShotgun
   m_EditorClassIdentifier: 
-  Nome: Luz
   dialogue:
-  - Uma arma...
-  - "Eu n\xE3o gosto de armas, mas... \xC9 melhor ter uma do que n\xE3o ter."
-  responses: []
+  - 'Luz:
+
+    Uma arma...'
+  - "Luz:\nEu n\xE3o gosto de armas, mas... \xC9 melhor ter uma do que n\xE3o ter."
+  - 'Luz:
+
+    Eu deveria pega-la?'
+  responses:
+  - responseText: Sim
+    dialogueObject: {fileID: 11400000, guid: 9e65349cb529b8545854dd3a7b850e8d, type: 2}
+  - responseText: "N\xE3o"
+    dialogueObject: {fileID: 11400000, guid: 9f82a822a052d034aa466cf7f4efc4a7, type: 2}
