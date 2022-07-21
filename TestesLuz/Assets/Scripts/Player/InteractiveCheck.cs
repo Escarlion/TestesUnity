@@ -5,11 +5,12 @@ using UnityEngine.Events;
 
 public class InteractiveCheck : MonoBehaviour
 {
+
+    //Referencias a objetos
     private GameObject player;
     private GameObject dialogueUI;
 
-    //public DialogueUI DialogueUI => dialogueUI;
-
+    //Variaveis
     private bool hasDialogue;
     public bool isInRange;
     public KeyCode interactKey;
@@ -41,6 +42,8 @@ public class InteractiveCheck : MonoBehaviour
 
     private void Update()
     {
+        // Evita que a ação seja executada caso o dialogo esteja rodando, assim caso a ação seja fazer o objeto sumir, ele só vai sumir dps do dialogo
+        checkDialogue();
         if (isInRange && !hasDialogue)
         {
             if (Input.GetKeyDown(interactKey))

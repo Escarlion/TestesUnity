@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4673745865487915212
 Transform:
   m_ObjectHideFlags: 0
@@ -240,7 +240,6 @@ GameObject:
   - component: {fileID: 4673745865639770501}
   - component: {fileID: 7178004244880222210}
   - component: {fileID: 4673745865639770497}
-  - component: {fileID: 5638181898197119606}
   - component: {fileID: 4673745865639770503}
   - component: {fileID: 4673745865639770496}
   - component: {fileID: 4673745865639770500}
@@ -337,23 +336,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueUI: {fileID: 0}
   animator: {fileID: 4673745865639770500}
-  MoveSpeed: 5
   facingRight: 1
-  startPosition: {fileID: 0}
---- !u!114 &5638181898197119606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4673745865639770499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 774b869e5c1461d4fb51babaa9f61353, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 4673745865639770497}
-  hasShotgun: 0
+  MoveSpeed: 5
 --- !u!50 &4673745865639770503
 Rigidbody2D:
   serializedVersion: 4
@@ -449,7 +433,7 @@ MonoBehaviour:
   - {x: 0.1253953, y: -0.43376398, z: 0}
   m_ShapePathHash: 1496498381
   m_Mesh: {fileID: 0}
-  m_InstanceId: 42326
+  m_InstanceId: 37512
 --- !u!114 &3701068955211708038
 MonoBehaviour:
   m_ObjectHideFlags: 0

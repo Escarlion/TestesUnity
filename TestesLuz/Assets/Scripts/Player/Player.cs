@@ -4,40 +4,36 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private DialogueUI dialogueUI;
-    [SerializeField] Animator animator;
-
-    private PlayerHandler playerHandler;
-
-    private bool isInteractive = false;
-
-    public float MoveSpeed = 5f; //velocidade do player
-
-    [HideInInspector]
-    public bool facingRight = true;
-    Vector2 movement;
-
-    public VectorValue startPosition;
-
-    public DialogueUI DialogueUI => dialogueUI;
-
     public IInteractable Interactable { get; set; }
 
+    //Objetos
+    [SerializeField] private DialogueUI dialogueUI;
+    [SerializeField] Animator animator;
+    private PlayerHandler playerHandler;
+    public DialogueUI DialogueUI => dialogueUI;
     private Rigidbody2D rb;
+    
+    //Variaveis
+    private bool isInteractive = false; 
+    [HideInInspector]
+    public bool facingRight = true;
+    public float MoveSpeed = 5f;
+    Vector2 movement;
+
 
     private void Start()
     {
         playerHandler = GetComponent<PlayerHandler>();
-        rb = GetComponent<Rigidbody2D>(); //cria a colisão   
+        rb = GetComponent<Rigidbody2D>(); 
     }
 
     private void Update()
     {
-
-            
+        //Atualiza o a posição do personagem
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
+        //Roda a animação de movimento
         if (movement.x != 0 || movement.y != 0)
         {
             animator.SetBool("Move", true);
@@ -46,8 +42,8 @@ public class Player : MonoBehaviour
         {
             animator.SetBool("Move", false);
         }
-
-        if (Input.GetKeyDown(KeyCode.E)) //interação
+        //interação
+        if (Input.GetKeyDown(KeyCode.E)) 
         {
             if (!dialogueUI.IsOpen)
             {
@@ -55,6 +51,7 @@ public class Player : MonoBehaviour
             }
             
         }
+        //Corrida
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             MoveSpeed = 10f;
@@ -63,8 +60,10 @@ public class Player : MonoBehaviour
         {
             MoveSpeed = 5f;
         }
+        //Lanterna
         if (Input.GetKeyDown(KeyCode.Q))
         { 
+            //verifica se ele esta ativo ou não
             if (gameObject.transform.GetChild(0).gameObject.activeSelf)
             {
                 gameObject.transform.GetChild(0).gameObject.SetActive(false);
@@ -79,6 +78,21 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        PlayerMovement();
+    }
+
+    //Inverte o sprite do personagem
+    void Flip()
+    {
+        Vector3 currentScale = gameObject.transform.localScale;
+        currentScale.x *= -1;
+        gameObject.transform.localScale = currentScale;
+        
+        facingRight = !facingRight;
+    }
+   //Move o personagem 
+    void PlayerMovement()
+    {
         if (dialogueUI.IsOpen) return; //impede que o player se mova caso o dialogo esteja aberto
 
         rb.MovePosition(rb.position + movement.normalized * (MoveSpeed * Time.fixedDeltaTime)); //faz o player se mexer
@@ -91,17 +105,7 @@ public class Player : MonoBehaviour
             Flip();
         }
     }
-
-    void Flip()
-    {
-        Vector3 currentScale = gameObject.transform.localScale;
-        currentScale.x *= -1;
-        gameObject.transform.localScale = currentScale;
-        
-        facingRight = !facingRight;
-    }
-   
-
+    //Ativa o Icone quando esta em contato com algo interativo
     public void interactIconActivator()
     {
         isInteractive = !isInteractive;

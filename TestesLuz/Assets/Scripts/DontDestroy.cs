@@ -7,13 +7,15 @@ public class DontDestroy : MonoBehaviour
     [HideInInspector]
     public string objectID;
 
+    //Cria um ID para evitar que objetos sejam duplicados
     private void Awake()
     {
-        objectID = name + transform.position.ToString();
+        objectID = name + transform.position.ToString(); //Usa a posição para evitar problemas com objetos com o mesmo nome
     }
 
     void Start()
     {
+        //Destroi objetos com Id's iguais
         for (int i = 0; i < Object.FindObjectsOfType<DontDestroy>().Length; i++)
         {
             if(Object.FindObjectsOfType<DontDestroy>()[i] != this)
