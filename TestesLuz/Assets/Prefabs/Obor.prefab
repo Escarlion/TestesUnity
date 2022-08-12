@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 2665917240639098057}
   - component: {fileID: 2665917240639098056}
   m_Layer: 0
-  m_Name: Zip
+  m_Name: Obor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

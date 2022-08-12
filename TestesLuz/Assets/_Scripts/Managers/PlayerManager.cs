@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerHandler : MonoBehaviour
+public class PlayerManager: MonoBehaviour
 {
     //Objetos
     GameObject player;

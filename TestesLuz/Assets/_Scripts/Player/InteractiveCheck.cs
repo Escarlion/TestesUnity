@@ -10,11 +10,14 @@ public class InteractiveCheck : MonoBehaviour
     private GameObject player;
     private GameObject dialogueUI;
 
+    //Inspetor
+    public KeyCode interactKey;
+    public UnityEvent interactAction;
+
     //Variaveis
     private bool hasDialogue;
     public bool isInRange;
-    public KeyCode interactKey;
-    public UnityEvent interactAction;
+    
 
     private void Start()
     {
@@ -54,7 +57,7 @@ public class InteractiveCheck : MonoBehaviour
     }
     void checkDialogue()
     {
-        if (dialogueUI.GetComponent<DialogueUI>().IsOpen)
+        if (dialogueUI.GetComponent<DialogueUI>())
         {
             hasDialogue = true;
         }

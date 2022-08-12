@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     //Objetos
     [SerializeField] private DialogueUI dialogueUI;
     [SerializeField] Animator animator;
-    private PlayerHandler playerHandler;
+    private PlayerManager playerManager;
     public DialogueUI DialogueUI => dialogueUI;
     private Rigidbody2D rb;
     
@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        playerHandler = GetComponent<PlayerHandler>();
+        playerManager = GetComponent<PlayerManager>();
         rb = GetComponent<Rigidbody2D>(); 
     }
 
